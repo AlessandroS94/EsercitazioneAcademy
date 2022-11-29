@@ -1,16 +1,16 @@
 package tvprj.driver;
 
-import tvprj.tv.TV;
+import tvprj.impl.TV;
 
 public class Driver {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		 String[] strAr1=new String[] {"Ani", "Sam", "Joe"};
 		
-		TV tv = new TV(null, 0, strAr1);
-		
-		//tv.recoursiveToString(strAr1.length-1, strAr1);
+		 String[] strAr1=new String[] {"italia1", "italia2", "italia3","Radio Maria","MTV"};
+		System.out.println("inizio");
+		TV tv = new TV();
+		tv.setCanali(strAr1);
+			
+		tv.cambiaCanale("italia1");
 	}
-
 }

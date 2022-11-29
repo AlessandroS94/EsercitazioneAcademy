@@ -1,4 +1,4 @@
-package tvprj.tv;
+package tvprj.impl;
 
 public class Elettrodomestici {
 
@@ -22,15 +22,16 @@ public class Elettrodomestici {
 	}
 
 	public Elettrodomestici(String produttore, int seriale) {
-		super();
 		this.produttore = produttore;
 		this.seriale = seriale;
+	}
+
+	public Elettrodomestici() {
+
 	}
 
 	@Override
 	public String toString() {
 		return "Elettrodomestici [produttore=" + produttore + ", seriale=" + seriale + "]";
 	}
-	
-
 }
