@@ -22,6 +22,20 @@ public class Tv {
                 '}';
     }
 
+    public String toStringRicorsivo(int n, String s[])
+
+    {
+          if (n ==0) {
+
+              System.out.println(s[n)];
+
+              return "fine";
+          }
+
+         System.out.println(s[n]);
+          return toStringRicorsivo( n-1, s[]);
+
+    }
 
 
 
