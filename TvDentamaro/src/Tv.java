@@ -17,7 +17,7 @@ public class Tv {
 
     @Override
     public String toString() {
-        return "TvFDM{" +
+        return "Tv{" +
                 "s=" + Arrays.toString(s) +
                 '}';
     }
