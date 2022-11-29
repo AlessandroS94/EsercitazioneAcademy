@@ -1,0 +1,6 @@
+import java.lang.reflect.Array;
+
+public class TvMicheleBellizzi {
+
+	String canali = new Array[];
+}

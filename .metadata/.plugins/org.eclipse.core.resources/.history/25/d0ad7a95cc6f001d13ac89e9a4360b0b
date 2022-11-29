@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Driver {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public static void stampa() {
+		
+		Scanner input= new Scanner(System.in);
+		String canale = null;
+		String[] canali = new String[10];
+		for(int i=0; i<canali.length;i++) {
+			canale=input.next(canale);
+			canali[i]=canale;
+		}
+		System.out.println("ecco i canali: ");
+		
+		TvMicheleBellizzi tvMicheleBellizzi= new TvMicheleBellizzi(canali);
+		
+		
+	}
+}
