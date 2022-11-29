@@ -1,4 +1,4 @@
-public class Tv {
+public class Tv extends Elettrodomestici{
     private Canale[] canali;
     private int cont = 0;
 
@@ -6,13 +6,14 @@ public class Tv {
         this.canali = new Canale[max];
     }
 
-    public Canale[] getCanale() {
+    public Canale[] getCanali() {
         return canali;
     }
 
-    public void setCanale(Canale[] canale) {
-        this.canali = canale;
+    public void setCanali(Canale[] canali) {
+        this.canali = canali;
     }
+
 
     public void addCanale(Canale canale){
         if (this.cont < this.canali.length) {
