@@ -2,26 +2,32 @@ package com.tv;
 
 import java.util.Arrays;
 
-public class TVAdriano {
+public class TVAdriano extends elettrodomestici {
 
 	public static void main(String[] args) {
 		String[] canali = { "canale 5", "rete 4", "mediaset extra", "italia juve", "telenorba", "radio maria",
 				"TV2000" };
-
+		String numeroSeriale= "12e43232se";
+		String produttore ="franco";
+		
+		
 		stampa(canali);
+		System.out.println("dispositivo " + numeroSeriale + " a cura di  " +produttore);
 	};
 
 	private String[] canali;
+
+	
+	public TVAdriano(String numeroSeriale, String produttore) {
+		super(numeroSeriale, produttore);
+		// TODO Auto-generated constructor stub
+	}
 
 	public String[] getCanali() {
 		return canali;
 	}
 
 	public void setCanali(String[] canali) {
-		this.canali = canali;
-	}
-
-	public TVAdriano(String[] canali) {
 		this.canali = canali;
 	}
 
