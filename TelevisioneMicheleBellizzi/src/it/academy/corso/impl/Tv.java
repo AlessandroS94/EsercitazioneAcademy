@@ -7,7 +7,21 @@ import it.academy.corso.interfaces.Telecomando;
 public class Tv implements Telecomando, Mobile, Hub {
     private String[] canali = {"Italia1", "Canale5", "La7"};
     private String canaleGuardato;
-
+    Boolean canalePresente;
+    
+    
+   public boolean exist(int n)
+   {
+	   if(!exist(n)) {
+		   return false;
+		 
+		   
+	   }
+	   return true;
+	   
+   }
+    
+    
     public String getCanaleGuardato() {
         return canaleGuardato;
     }
@@ -57,16 +71,27 @@ public class Tv implements Telecomando, Mobile, Hub {
 
     @Override
     public void cambiaCanaleHub(int n) {
-        this.canaleGuardato = canali[n];
+        
+       
+        	this.canaleGuardato = canali[n];
+        	
     }
 
+    
+
+    
     @Override
     public void cambiaCanaleMobile(int n) {
-        this.canaleGuardato = canali[n];
+    	 
+         	this.canaleGuardato = canali[n];
+         	
+        
     }
-
     @Override
     public void cambiaCanaleTelecomando(int n) {
-        this.canaleGuardato = canali[n];
-    }
+    
+         	this.canaleGuardato = canali[n];
+         	
+        
+    	 }
 }
