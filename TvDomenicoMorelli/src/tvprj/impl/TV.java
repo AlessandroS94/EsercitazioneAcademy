@@ -66,7 +66,8 @@ public class TV extends Elettrodomestici implements Hub, Telefono, Telecomando {
 				}
 				++i;
 			} while (canale == canali[i] || i == canali.length);
-
+			if (i == canali.length)
+				System.out.println("Canale non presente");
 		}
 
 	}
