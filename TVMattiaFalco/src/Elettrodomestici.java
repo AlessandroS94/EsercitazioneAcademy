@@ -2,6 +2,14 @@ public class Elettrodomestici {
     private int numeroSeriale;
     private String produttore;
 
+    public Elettrodomestici() {
+    }
+
+    public Elettrodomestici(int numeroSeriale, String produttore) {
+        this.numeroSeriale = numeroSeriale;
+        this.produttore = produttore;
+    }
+
     public int getNumeroSeriale() {
         return numeroSeriale;
     }

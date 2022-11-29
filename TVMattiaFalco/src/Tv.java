@@ -3,6 +3,7 @@ public class Tv extends Elettrodomestici{
     private int cont = 0;
 
     public Tv(int max) {
+        super();
         this.canali = new Canale[max];
     }
 
