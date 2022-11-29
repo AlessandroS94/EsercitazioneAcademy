@@ -55,15 +55,17 @@ public class TV extends Elettrodomestici implements Hub, Telefono, Telecomando {
 	@Override
 	public void cambiaCanale(String canale) {
 		if (this.canali == null) {
-			System.out.println("la stringa è vuota");
+			System.out.println("l'array e' vuoto");
 		} else {
-			for (int i = 0; i < canali.length; i++) {
+			int i = 0;
+			do {
+
 				if (canale == canali[i]) {
 					this.canaleCorrente = canale;
-					System.out.println("Il canale "+canale+" è presente");
-					break;
+					System.out.println("Il canale " + canale + " e' presente");
 				}
-			}
+				++i;
+			} while (canale == canali[i] || i == canali.length);
 
 		}
 
