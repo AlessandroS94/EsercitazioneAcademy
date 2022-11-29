@@ -35,4 +35,12 @@ public class Tv {
             System.out.print(canali[i].getNome() + ", ");
         }
     }
+    public String toStringRicorsivo(int n){
+        if (this.canali[n+1] == null){
+            System.out.println(this.canali[n].getNome());
+            return "fine";
+        }
+        System.out.println(this.canali[n].getNome());
+        return toStringRicorsivo(n+1);
+    }
 }
