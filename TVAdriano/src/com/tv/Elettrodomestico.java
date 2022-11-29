@@ -1,6 +1,6 @@
 package com.tv;
 
-public class elettrodomestici {
+public class Elettrodomestico {
 
 	private String numeroSeriale;
 	private String produttore;
@@ -17,10 +17,12 @@ public class elettrodomestici {
 	public void setProduttore(String produttore) {
 		this.produttore = produttore;
 	}
-	public elettrodomestici(String numeroSeriale, String produttore) {
+	public Elettrodomestico(String numeroSeriale, String produttore) {
 		this.numeroSeriale = numeroSeriale;
 		this.produttore = produttore;
 	}
-	
+	public Elettrodomestico() {
+		
+	}
 	
 }
