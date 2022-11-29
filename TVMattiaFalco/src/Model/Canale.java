@@ -1,4 +1,7 @@
+package Model;
+
 public class Canale {
+    private int id = 0;
     private int num;
     private String nome;
 
@@ -7,8 +10,13 @@ public class Canale {
     }
 
     public Canale(int num, String nome) {
+        this.id = id + 1;
         this.num = num;
         this.nome = nome;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public int getNum() {
