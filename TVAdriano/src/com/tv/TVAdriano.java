@@ -1,28 +1,42 @@
 package com.tv;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 import com.tv.interfaces.iHub;
 import com.tv.interfaces.iTelecomando;
 import com.tv.interfaces.iTelefono;
 
-public class TVAdriano extends Elettrodomestico implements iHub,iTelecomando,iTelefono {
+public class TVAdriano extends Elettrodomestico implements iHub, iTelecomando, iTelefono {
 
 	public static void main(String[] args) {
 		String[] canali = { "canale 5", "rete 4", "mediaset extra", "italia juve", "telenorba", "radio maria",
-				"TV2000" };
-		String programmavisione="canale 5";
-		String nuovoCanale = "12";
+				"TV2000"};
+		//System.out.println("inserisci il canale nuovo: ");
+		//Scanner input= new Scanner(System.in);
+		String programmavisione = "canale 5";
+		String nuovoCanale = "rete 4";
+		Boolean canalePresente;
 		
 		
 		TVAdriano tv = new TVAdriano();
 		tv.setNumeroSeriale("12e43232se");
 		tv.setProduttore("franco");
 		System.out.println(programmavisione);
-		tv.cambiaCanale(nuovoCanale);
-		stampa(canali);
-		System.out.println("dispositivo " + tv.getNumeroSeriale() + " a cura di  " + tv.getNumeroSeriale());
-		System.out.println(nuovoCanale);
+		
+		canalePresente= controlloCanale(canali, nuovoCanale);
+		
+		if(canalePresente==true) {
+			tv.cambiaCanale(nuovoCanale);
+			System.out.println(nuovoCanale);
+			
+		} else {
+			System.out.println("il canale non è presente");
+		}
+		// stampa(canali);
+		// System.out.println("dispositivo " + tv.getNumeroSeriale() + " a cura di " +
+		// tv.getNumeroSeriale());
+		//System.out.println(nuovoCanale);
 	};
 
 	private String[] canali;
@@ -56,6 +70,15 @@ public class TVAdriano extends Elettrodomestico implements iHub,iTelecomando,iTe
 		}
 	}
 
+	public static Boolean controlloCanale(String[] canali, String Nuovo) {
+		for (String canale : canali) {
+			if (canale == Nuovo) {
+				System.out.println("il " + Nuovo + " selezionato corrisponde a " + canale + "!");
+				return true;
+			} 
+		}return false;
+	}
+
 	/*
 	 * public static String stampaR(String[] canali) { int n = canali.length; String
 	 * canale = canali[n]; System.out.println("sei su" + canale + "!"); return
@@ -76,6 +99,5 @@ public class TVAdriano extends Elettrodomestico implements iHub,iTelecomando,iTe
 		// TODO Auto-generated method stub
 		this.programmavisione = n;
 	}
-
 
 }
