@@ -21,7 +21,9 @@ public class Main {
        System.out.println("quanti canali vuoi inserire ?");
        n= input.nextInt();
        
+       
        System.out.println("inserisci i canali");
+      
        for(int i=0; i<n;i++)
        {
        
@@ -29,6 +31,8 @@ public class Main {
        
        }
        System.out.println(canalini);
+       
+  
        
        System.out.println(tv.toStringRicorsivo(0));
         
@@ -38,7 +42,7 @@ public class Main {
         
         System.out.println(tv.getCanaleGuardato());
       }
-      catch(InputMismatchException e){
+      catch(Exception e){
     	  System.out.println("Errore "+e);
     	  System.out.println("canale non trovato");
     	  
