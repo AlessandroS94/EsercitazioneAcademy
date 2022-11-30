@@ -2,13 +2,12 @@ package it.academy.corso.controller;
 
 import it.academy.corso.model.Student;
 import it.academy.corso.model.Tag;
+import it.academy.corso.model.Tutorial;
 import it.academy.corso.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +30,12 @@ public class StudentController {
         }
 
         return new ResponseEntity<>(studentes, HttpStatus.OK);
+    }
+
+    @PostMapping("/students")
+    public ResponseEntity<Student> createStudents(@RequestBody Student student) {
+        Student _student = sR.save(new Student(student.getNome()));
+        return new ResponseEntity<>(_student, HttpStatus.CREATED);
     }
 
 

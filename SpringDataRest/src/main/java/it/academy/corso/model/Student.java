@@ -10,8 +10,7 @@ public class Student {
     @Column(name = "nome")
     private String nome;
 
-    public Student(Long id, String nome) {
-        this.id = id;
+    public Student(String nome) {
         this.nome = nome;
     }
 
