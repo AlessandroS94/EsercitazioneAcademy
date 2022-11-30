@@ -100,10 +100,20 @@ public class TutorialController {
   public ResponseEntity<HashMap> me() {
     HashMap<String, String> me = new HashMap<String, String>();
     me.put("Nome: ", "Antonio");
-
-
     return new ResponseEntity<>(me, HttpStatus.OK);
   }
+
+  @GetMapping("/ciao/{name}")
+  public ResponseEntity<HashMap<String,String>> CatchName(@PathVariable("name") String name){
+    HashMap<String,String> nameMap= new HashMap<String, String>();
+    nameMap.put("Name", "Antonio");
+
+    return new ResponseEntity<>(nameMap,HttpStatus.OK);
+
+  }
+
+
+
 }
 
 
