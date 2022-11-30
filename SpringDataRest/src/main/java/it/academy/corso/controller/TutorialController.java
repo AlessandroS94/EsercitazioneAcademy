@@ -1,6 +1,7 @@
 package it.academy.corso.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import it.academy.corso.repository.TutorialRepository;
@@ -91,6 +92,14 @@ public class TutorialController {
 	  String ciao="Ciao";
 		return  new ResponseEntity<>(ciao, HttpStatus.OK);
 	  
+  }
+  @GetMapping("/nome")
+  public ResponseEntity<HashMap<String,String>> nome(){
+	  
+	  HashMap<String,String> nomeMap= new HashMap<String, String>();
+	  nomeMap.put("Nome", "Michele");
+	 
+	  return new ResponseEntity<>(nomeMap,HttpStatus.OK);	  
   }
   
   
