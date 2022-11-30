@@ -94,8 +94,15 @@ public class TutorialController {
     return new ResponseEntity<>(c, HttpStatus.OK);
   }
   @GetMapping("/getName")
-  public ResponseEntity<Map<String, String>> getMap(){
+  public ResponseEntity<Map<String, String>> getNome(){
     Map map = new HashMap<>();
     map.put("Nome","Mattia Falco");
-    return new ResponseEntity<>(map, HttpStatus.OK); }
+    return new ResponseEntity<>(map, HttpStatus.OK);
+  }
+  @GetMapping("/getVariabile/{nome}")
+  public ResponseEntity<Map<String, String>> getVariabile(@PathVariable("nome") String nome) {
+    Map map = new HashMap<>();
+    map.put("Nome", nome);
+    return new ResponseEntity<>(map, HttpStatus.OK);
+  }
 }
