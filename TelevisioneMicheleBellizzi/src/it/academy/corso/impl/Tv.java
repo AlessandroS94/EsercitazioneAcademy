@@ -1,6 +1,7 @@
 package it.academy.corso.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import it.academy.corso.interfaces.Hub;
 import it.academy.corso.interfaces.Mobile;
@@ -8,8 +9,20 @@ import it.academy.corso.interfaces.Telecomando;
 
 public class Tv implements Telecomando, Mobile, Hub {
 	private ArrayList<String> canali = new ArrayList<String>();
+	public HashMap<String, Integer> getApplication() {
+		return application;
+	}
+
+	public void setApplication(HashMap<String, Integer> application) {
+		this.application = application;
+	}
+
+	private HashMap<String, Integer> application= new HashMap<>();
+	
 	private String canaleGuardato;
 
+	
+	
 	public String getCanaleGuardato() {
 		return canaleGuardato;
 	}
@@ -82,5 +95,8 @@ public class Tv implements Telecomando, Mobile, Hub {
 
 
 	}
+	
+	
+
 
 }
