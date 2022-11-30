@@ -1,7 +1,9 @@
 package it.academy.corso.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import it.academy.corso.repository.TutorialRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,4 +93,9 @@ public class TutorialController {
     String c = "ciao";
     return new ResponseEntity<>(c, HttpStatus.OK);
   }
+  @GetMapping("/getName")
+  public ResponseEntity<Map<String, String>> getMap(){
+    Map map = new HashMap<>();
+    map.put("Nome","Mattia Falco");
+    return new ResponseEntity<>(map, HttpStatus.OK); }
 }
