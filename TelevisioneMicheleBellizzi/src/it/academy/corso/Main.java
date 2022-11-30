@@ -4,6 +4,7 @@ import it.academy.corso.impl.Tv;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -16,6 +17,7 @@ public class Main {
        canalini=tv.getCanali();
        
        int n;
+       
        System.out.println("quanti canali vuoi inserire ?");
        n= input.nextInt();
        
@@ -31,10 +33,17 @@ public class Main {
        System.out.println(tv.toStringRicorsivo(0));
         
         System.out.println("--------------------------");
-      
+      try {
         tv.cambiaCanaleHub(1);
         
         System.out.println(tv.getCanaleGuardato());
+      }
+      catch(InputMismatchException e){
+    	  System.out.println("Errore "+e);
+    	  System.out.println("canale non trovato");
+    	  
+      }
+    		  
         
         
     
