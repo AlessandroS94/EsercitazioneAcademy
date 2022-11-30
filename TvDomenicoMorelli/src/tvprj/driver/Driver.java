@@ -2,8 +2,10 @@ package tvprj.driver;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 import tvprj.impl.TV;
@@ -13,6 +15,7 @@ public class Driver {
 	public static void main(String[] args) {
 		short ctrl = 0;
 		List<String> list = new ArrayList<>();
+	
 
 		list.add("italia1");
 		list.add("italia2");
@@ -25,12 +28,12 @@ public class Driver {
 		String canaleUtente = null;
 		do {
 
-			System.out.println("C'a ma fa'?\n");
+			System.out.println("C'a ma fa'?");
 			System.out.println("1) Aggiungi canale");
-			System.out.println("\n2) Cambia canale");
-			System.out.println("\n3) Rimuovi canale");
-			System.out.println("\n4) Lista canali");
-			System.out.println("\n0)Esco dal menu'");
+			System.out.println("2) Cambia canale");
+			System.out.println("3) Rimuovi canale");
+			System.out.println("4) Lista canali");
+			System.out.println("0)Esco dal menu'");
 			try {
 				ctrl = sc.nextShort();
 			}catch (InputMismatchException e) {

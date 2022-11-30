@@ -9,8 +9,8 @@ import tvprj.interfaces.Telecomando;
 import tvprj.interfaces.Telefono;
 
 public class TV extends Elettrodomestici implements Hub, Telefono, Telecomando {
-	List<String> canali;
-	String canaleCorrente;
+	private List<String> canali;
+	private String canaleCorrente;
 
 	public TV() {
 		super();
