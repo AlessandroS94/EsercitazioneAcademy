@@ -2,6 +2,7 @@ package tvprj.driver;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -28,9 +29,22 @@ public class Driver {
 			System.out.println("1) Aggiungi canale");
 			System.out.println("\n2) Cambia canale");
 			System.out.println("\n3) Rimuovi canale");
-			ctrl=sc.nextShort();
+			System.out.println("\n4) Lista canali");
+			System.out.println("\n0)Esco dal menu'");
+			try {
+				ctrl = sc.nextShort();
+			}catch (InputMismatchException e) {
+				System.out.println(e);
+			} 
+			catch (Exception e) {
+				System.out.println(e);
+			} 
+
 			sc.nextLine();
 			switch (ctrl) {
+			case 0:
+				
+				break;
 			case 1:
 				System.out.println("Inserisci il nome del canale da aggiungere");
 				canaleUtente = sc.nextLine();
@@ -42,7 +56,7 @@ public class Driver {
 				tv.cambiaCanale(canaleUtente);
 				break;
 			case 3:
-				tv.cambiaCanale(null);
+				tv.cambiaCanale("Nessun Canale");
 				break;
 			case 4:
 				tv.printCanali();
@@ -51,10 +65,10 @@ public class Driver {
 			default:
 				System.out.println("Valore non accettato: " + ctrl);
 			}
-		} while (ctrl != 1 && ctrl != 2 && ctrl != 3&& ctrl != 4);
+		} while (ctrl!=0);
 
 		System.out.println("Ecco tutti i canali");
 		tv.printCanali();
-		
+
 	}
 }
