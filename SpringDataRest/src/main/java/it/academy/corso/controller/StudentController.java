@@ -1,8 +1,6 @@
 package it.academy.corso.controller;
 
 import it.academy.corso.model.Student;
-import it.academy.corso.model.Tag;
-import it.academy.corso.model.Tutorial;
 import it.academy.corso.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
