@@ -51,6 +51,15 @@ public class TutorialController {
 		return new ResponseEntity<>(nome, HttpStatus.OK);
 	}
 
+	@GetMapping("/ciao/{nome}")
+	public ResponseEntity<Map<String, String>> getName(@PathVariable("nome") String nome) {
+		Map<String, String> nomi = new HashMap<>();
+		nomi.put("nome", nome);
+
+		return new ResponseEntity<>(nomi, HttpStatus.OK);
+	}
+	
+	
 	@GetMapping("/tutorials/{id}")
 	public ResponseEntity<Tutorial> getTutorialById(@PathVariable("id") long id) {
 		Tutorial tutorial = tutorialRepository.findById(id)
