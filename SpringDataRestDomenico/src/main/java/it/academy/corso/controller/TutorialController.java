@@ -99,7 +99,12 @@ public class TutorialController {
   public ResponseEntity<Map<String, String>> MapDom() {
 	  Map<String, String> map = new HashMap<String, String>();
 	    map.put("Nome", "Domenico");
- 
     return new ResponseEntity<>(map, HttpStatus.OK);
   }
+  
+  @GetMapping("/name/{name}")
+  public ResponseEntity<String> getMap(@PathVariable("name") String name) {  
+    return new ResponseEntity<>(name,HttpStatus.NO_CONTENT);
+  }
+  
 }
