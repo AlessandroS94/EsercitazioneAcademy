@@ -3,14 +3,15 @@ package Model;
 import Interface.Hub;
 import Interface.Telecomando;
 
-public class Tv extends Elettrodomestici implements Telecomando, Hub {
-    private Canale[] canali;
-    private Canale canaleInVisione;
-    private int cont = 0;
+import java.util.ArrayList;
 
-    public Tv(int max) {
+public class Tv extends Elettrodomestici implements Telecomando, Hub {
+    private ArrayList<Canale> canali;
+    private Canale canaleInVisione;
+
+    public Tv() {
         super();
-        this.canali = new Canale[max];
+        this.canali = new ArrayList<>();
     }
 
     public Canale getCanaleInVisione() {
@@ -21,77 +22,66 @@ public class Tv extends Elettrodomestici implements Telecomando, Hub {
         this.canaleInVisione = canaleInVisione;
     }
 
-    public Canale[] getCanali() {
+    public ArrayList<Canale> getCanali() {
         return canali;
     }
 
-    public void setCanali(Canale[] canali) {
+    public void setCanali(ArrayList<Canale> canali) {
         this.canali = canali;
     }
 
-
     public void addCanale(Canale canale){
-        if (this.cont < this.canali.length) {
-            this.canali[cont] = canale;
-            this.cont++;
-        }
+        this.canali.add(canale);
     }
     public Canale trovaCanale(String name){
-        for(int i = 0; i < this.cont; i++){
-            if(name == canali[i].getNome()){
-                return canali[i];
+        for(int i = 0; i<canali.size(); i++){
+            if(canali.get(i).getNome() == name){
+                return canali.get(i);
             }
         }
         return canaleInVisione;
     }
     public boolean exists(int n){
-        for(int i = 0; i < this.cont; i++){
-            if(n == canali[i].getNum()){
-                return true;
-            }
+        if (canali.contains(trovaCanale(n))){
+            return true;
         }
         return false;
     }
     public Canale trovaCanale(int n){
-        for(int i = 0; i < this.cont; i++){
-            if(n == canali[i].getNum()){
-                return canali[i];
+        for(int i = 0; i < this.canali.size(); i++){
+            if(canali.get(i).getNum() == n){
+                return canali.get(i);
             }
         }
         return canaleInVisione;
     }
     public Canale trovaCanaleById(int id){
-        for(int i = 0; i < this.cont; i++){
-            if(id == canali[i].getId()){
-                return canali[i];
+        for(int i = 0; i < this.canali.size(); i++){
+            if(canali.get(i).getId()==id){
+                return canali.get(i);
             }
         }
         return canaleInVisione;
     }
 
     public void stampaCanale(int num){
-        for(int i = 0; i<this.cont; i++) {
-            if (num == canali[i].getNum()) {
-                String can = canali[i].getNome();
-                System.out.println(can);
-            }
-        }
+        System.out.println(trovaCanale(num).getNome());
     }
 
     public void stampaCanali(){
-        for(int i = 0; i < this.canali.length && this.canali[i] != null; i++){
-            System.out.print(canali[i].getNome() + ", ");
+        for(int i = 0; i < this.canali.size() && this.canali.get(i) != null; i++){
+            System.out.print(canali.get(i).getNome() + ", ");
         }
     }
     public void stampaCanaleInVisione(){
         System.out.println(this.canaleInVisione.getNome());
     }
     public String toStringRicorsivo(int n){
-        if (this.canali[n+1] == null){
-            System.out.println(this.canali[n].getNome());
+        if (this.canali.get(n+1) == null){
+            System.out.println(this.canali.get(n).getNome());
             return "fine";
         }
-        System.out.println(this.canali[n].getNome());
+        System.out.println(this.canali.get(n).getNome());
         return toStringRicorsivo(n+1);
     }
 
@@ -105,18 +95,19 @@ public class Tv extends Elettrodomestici implements Telecomando, Hub {
     }
     @Override
     public void prossimoCanaleClick(){
-        if(canaleInVisione.getId()==canali.length) {
-            this.canaleInVisione = canali[0];
+        if(canaleInVisione.getId()==canali.size()) {
+            this.canaleInVisione = canali.get(0);
         }else{
             this.canaleInVisione = trovaCanaleById(canaleInVisione.getId()+1);
         }
     }
     public void precedenteCanaleClick(){
         if(canaleInVisione.getId()==1){
-            this.canaleInVisione = canali[this.cont];
+            this.canaleInVisione = canali.get(this.canali.size());
         }else{
             this.canaleInVisione = trovaCanaleById(canaleInVisione.getId()-1);
         }
     }
+
 
 }
