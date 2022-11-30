@@ -26,7 +26,6 @@ public class TVAdriano extends Elettrodomestico implements iHub, iTelecomando, i
 		tv.setProduttore("franco");
 		Scanner input = new Scanner(System.in);
 
-
 		// inserisci nuovo canale in lista
 		System.out.println("inserisci un nuovo canale nella lista: ");
 		String nuovoCanaleLista;
@@ -87,24 +86,24 @@ public class TVAdriano extends Elettrodomestico implements iHub, iTelecomando, i
 		String applicazione = "";
 		String versione = "";
 
-		applicazioni.put("netficc","3.4");
-		applicazioni.put("wazzap","15.7.2");
-		applicazioni.put("Romania","1914");
+		applicazioni.put("netficc", "3.4");
+		applicazioni.put("wazzap", "15.7.2");
+		applicazioni.put("Romania", "1914");
 		// aggiungi applicazione
-				System.out.println("inserisci una nuova applicazione: ");
-				try {
-					System.out.println("inserisci nome: ");
-					applicazione = input.nextLine();
-					System.out.println("inserisci versione: ");
-					versione = input.nextLine();
-					System.out.println("stai aggiungendo " + applicazione + " "+ versione);
-					tv.aggiungiApplicazione(applicazioni, applicazione, versione);
+		System.out.println("inserisci una nuova applicazione: ");
+		try {
+			System.out.println("inserisci nome: ");
+			applicazione = input.nextLine();
+			System.out.println("inserisci versione: ");
+			versione = input.nextLine();
+			System.out.println("stai aggiungendo " + applicazione + " " + versione);
+			tv.aggiungiApplicazione(applicazioni, applicazione, versione);
 
-				} catch (InputMismatchException e) {
-					// TODO: handle exception
-					System.out.println(e);
-				}
-				System.out.println("elenco applicazioni: " +applicazioni);
+		} catch (InputMismatchException e) {
+			// TODO: handle exception
+			System.out.println(e);
+		}
+		System.out.println("elenco applicazioni: " + applicazioni);
 
 	};
 
@@ -202,18 +201,15 @@ public class TVAdriano extends Elettrodomestico implements iHub, iTelecomando, i
 		 * int index = 0; for (String i : canali) { if (i == ce) {
 		 * System.out.println(i); canali.remove(index); } index++; }
 		 */
-		canali.remove(ce);
-		this.canali = canali;
+		this.canali.remove(ce);
 	}
 
 	public void aggiungiCanale(ArrayList<String> canali, String cn) {
-		canali.add(cn);
-		this.canali = canali;
+		this.canali.add(cn);
 	}
 
 	public void aggiungiApplicazione(Map<String, String> applicazioni, String a, String v) {
-		applicazioni.put(a, v);
-		this.applicazioni = applicazioni;
+		this.applicazioni.put(a, v);
 	}
 
 }
