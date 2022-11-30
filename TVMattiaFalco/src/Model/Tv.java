@@ -4,13 +4,18 @@ import Interface.Hub;
 import Interface.Telecomando;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class Tv extends Elettrodomestici implements Telecomando, Hub {
     private ArrayList<Canale> canali;
+    private Map<String, Double> app;
     private Canale canaleInVisione;
 
     public Tv() {
         super();
+        this.app = new HashMap();
         this.canali = new ArrayList<>();
     }
 
@@ -30,6 +35,20 @@ public class Tv extends Elettrodomestici implements Telecomando, Hub {
         this.canali = canali;
     }
 
+    public Map<String, Double> getApp() {
+        return app;
+    }
+
+    public void setApp(Map<String, Double> app) {
+        this.app = app;
+    }
+
+    public  void addApp(String applicazione, double versione){
+        app.put(applicazione, versione);
+    }
+    public void stampaApp(){
+        System.out.println(app);
+    }
     public void addCanale(Canale canale){
         this.canali.add(canale);
     }

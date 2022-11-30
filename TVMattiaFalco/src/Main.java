@@ -1,3 +1,4 @@
+import Model.Applicazione;
 import Model.Canale;
 import Model.Tv;
 
@@ -18,6 +19,10 @@ public class Main {
         tv.addCanale(c4);
         tv.addCanale(c5);
         tv.setCanaleInVisione(c);
+        tv.addApp("Netflix", 1.2);
+        tv.addApp("YouTube", 2.62);
+
+        tv.stampaApp();
 
         Scanner scn = new Scanner(System.in);
         int scelta ,can;
