@@ -19,6 +19,13 @@ public class TutorialController {
     @Autowired
     TutorialRepository tutorialRepository;
 
+    @GetMapping("/ciao")
+    public ResponseEntity<String> ciao(){
+        String c = "ciao";
+        return new ResponseEntity<>(c, HttpStatus.OK);
+    }
+
+
     @GetMapping("/tutorials")
     public ResponseEntity<List<Tutorial>> getAllTutorials(@RequestParam(required = false) String title) {
         List<Tutorial> tutorials = new ArrayList<Tutorial>();
