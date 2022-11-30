@@ -104,7 +104,7 @@ public class TutorialController {
   
   @GetMapping("/name/{name}")
   public ResponseEntity<String> getMap(@PathVariable("name") String name) {  
-    return new ResponseEntity<>(name,HttpStatus.NO_CONTENT);
+    return new ResponseEntity<>(name,HttpStatus.OK);
   }
   
 }
