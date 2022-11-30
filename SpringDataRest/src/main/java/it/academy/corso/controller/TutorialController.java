@@ -86,4 +86,9 @@ public class TutorialController {
     
     return new ResponseEntity<>(tutorials, HttpStatus.OK);
   }
+  @GetMapping("/ciao")
+  public ResponseEntity<String> ciao(){
+    String c = "ciao";
+    return new ResponseEntity<>(c, HttpStatus.OK);
+  }
 }
