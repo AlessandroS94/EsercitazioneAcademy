@@ -1,7 +1,9 @@
 package com.tv;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.InputMismatchException;
+import java.util.Map;
 import java.util.Scanner;
 
 import com.tv.interfaces.iHub;
@@ -14,32 +16,37 @@ public class TVAdriano extends Elettrodomestico implements iHub, iTelecomando, i
 		// String[] canali = { "canale 5", "rete 4", "mediaset extra", "italia juve",
 		// "telenorba", "radio maria",
 		// "TV2000" };
-		
+
+		// variabili
 		ArrayList<String> canali = new ArrayList<>();
 		TVAdriano tv = new TVAdriano();
 		String programmavisione = "canale 12";
 		Boolean canalePresente;
 		tv.setNumeroSeriale("12e43232se");
 		tv.setProduttore("franco");
-		System.out.println("inserisci un nuovo canale nella lista: ");
 		Scanner input = new Scanner(System.in);
+
+
+		// inserisci nuovo canale in lista
+		System.out.println("inserisci un nuovo canale nella lista: ");
 		String nuovoCanaleLista;
 		try {
 			nuovoCanaleLista = input.nextLine();
 			System.out.println(nuovoCanaleLista);
 			tv.aggiungiCanale(canali, nuovoCanaleLista);
-			
+
 		} catch (InputMismatchException e) {
 			// TODO: handle exception
 			System.out.println(e);
-		}		
+		}
 		canali.add("rete 4");
 		canali.add("canale 12");
 		canali.add("francesco demartino");
 		stampa(canali);
 
+		// cambia canale
 		System.out.println("inserisci canale in cui cambiare: ");
-		String nuovoCanale="";
+		String nuovoCanale = "";
 		try {
 			nuovoCanale = input.nextLine();
 			System.out.println(nuovoCanale);
@@ -47,23 +54,23 @@ public class TVAdriano extends Elettrodomestico implements iHub, iTelecomando, i
 			// TODO: handle exception
 			System.out.println(e);
 		}
-		
 
 		System.out.println("stavi vedendo " + programmavisione);
 
 		canalePresente = controlloCanale(canali, nuovoCanale);
 
+		// elimina canale
 		System.out.println("inserisci canale da eliminare: ");
 		String eliminare = "";
 		try {
-			eliminare =  input.nextLine();
+			eliminare = input.nextLine();
 			tv.eliminaCanale(canali, eliminare);
 		} catch (InputMismatchException e) {
 			// TODO: handle exception
 			System.out.println(e);
 		}
-		
-			if (canalePresente == true) {
+
+		if (canalePresente == true) {
 			tv.cambiaCanale(nuovoCanale);
 			System.out.println(nuovoCanale);
 
@@ -71,14 +78,65 @@ public class TVAdriano extends Elettrodomestico implements iHub, iTelecomando, i
 			System.out.println("il canale non è presente");
 		}
 		stampa(canali);
-		
+
 		// System.out.println("dispositivo " + tv.getNumeroSeriale() + " a cura di " +
 		// tv.getNumeroSeriale());
-		 System.out.println("attualmente stai vedendo "+nuovoCanale);
+		System.out.println("attualmente stai vedendo " + nuovoCanale);
+		// aplicazioni-variabili
+		Map<String, String> applicazioni = new HashMap<>();
+		String applicazione = "";
+		String versione = "";
+
+		applicazioni.put("netficc","3.4");
+		applicazioni.put("wazzap","15.7.2");
+		applicazioni.put("Romania","1914");
+		// aggiungi applicazione
+				System.out.println("inserisci una nuova applicazione: ");
+				try {
+					System.out.println("inserisci nome: ");
+					applicazione = input.nextLine();
+					System.out.println("inserisci versione: ");
+					versione = input.nextLine();
+					System.out.println("stai aggiungendo " + applicazione + " "+ versione);
+					tv.aggiungiApplicazione(applicazioni, applicazione, versione);
+
+				} catch (InputMismatchException e) {
+					// TODO: handle exception
+					System.out.println(e);
+				}
+				System.out.println("elenco applicazioni: " +applicazioni);
+
 	};
 
 	private ArrayList<String> canali;
 	private String programmavisione;
+	private Map<String, String> applicazioni = new HashMap<>();
+	private String applicazione = "";
+	private String versione = "";
+
+	public Map<String, String> getApplicazioni() {
+		return applicazioni;
+	}
+
+	public void setApplicazioni(Map<String, String> applicazioni) {
+		this.applicazioni = applicazioni;
+	}
+
+	public String getApplicazione() {
+		return applicazione;
+	}
+
+	public void setApplicazione(String applicazione) {
+		this.applicazione = applicazione;
+	}
+
+	public String getVersione() {
+		return versione;
+	}
+
+	public void setVersione(String versione) {
+		this.versione = versione;
+	}
 
 	public TVAdriano() {
 		// TODO Auto-generated constructor stub
@@ -140,21 +198,22 @@ public class TVAdriano extends Elettrodomestico implements iHub, iTelecomando, i
 	}
 
 	public void eliminaCanale(ArrayList<String> canali, String ce) {
-	/*	int index = 0;
-		for (String i : canali) {
-			if (i == ce) {
-				System.out.println(i);
-				canali.remove(index);
-			}
-			index++;
-		} */
+		/*
+		 * int index = 0; for (String i : canali) { if (i == ce) {
+		 * System.out.println(i); canali.remove(index); } index++; }
+		 */
 		canali.remove(ce);
-		this.canali = canali; 
+		this.canali = canali;
 	}
 
 	public void aggiungiCanale(ArrayList<String> canali, String cn) {
 		canali.add(cn);
 		this.canali = canali;
+	}
+
+	public void aggiungiApplicazione(Map<String, String> applicazioni, String a, String v) {
+		applicazioni.put(a, v);
+		this.applicazioni = applicazioni;
 	}
 
 }
