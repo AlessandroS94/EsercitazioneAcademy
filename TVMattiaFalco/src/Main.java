@@ -1,4 +1,3 @@
-import Model.Applicazione;
 import Model.Canale;
 import Model.Tv;
 
