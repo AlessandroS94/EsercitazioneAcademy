@@ -34,6 +34,13 @@ public class TutorialController {
         return new ResponseEntity<>(map, HttpStatus.OK);
     }
 
+    @GetMapping("/getMapNome/{nome}")
+    public ResponseEntity<Map<String,String>> getMapNome(@PathVariable("nome") String nome){
+        Map<String,String> map = new HashMap<>();
+        map.put("Nome",nome);
+        return new ResponseEntity<>(map, HttpStatus.OK);
+    }
+
 
     @GetMapping("/tutorials")
     public ResponseEntity<List<Tutorial>> getAllTutorials(@RequestParam(required = false) String title) {
